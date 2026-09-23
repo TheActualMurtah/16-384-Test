@@ -1,0 +1,251 @@
+\newcommand{\duedate}{3 September 2024}
+\documentclass{16384_doc}
+\newcommand{\assignmentname}{Assignment 0}
+%\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\thepartno}{\Roman{partno}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Overview}
+Welcome to Robot Kinematics and Dynamics! This initial assignment aims to familiarize you with the tools we will be using this semester and provide a brief review of the prerequisite knowledge we expect you to have. The topics and processes in this assignment are essential and will be frequently utilized throughout the course. If you experience any challenges with any part of this assignment, please reach out to the course staff so we can ensure you are well-prepared for the upcoming assignments.
+
+\section{Background}
+
+This section provides a brief overview of the key concepts discussed in lectures as they relate to the labs and the assignments.
+
+\subsection{Matrices}
+
+Throughout this course, we will extensively use matrices and matrix multiplication. While a deep understanding of linear algebra is not required, you should be comfortable with the following basics:
+
+\begin{itemize}
+    \item Matrix multiplication
+    \item Transposition
+    \item Inversion
+    \item Rank
+    \item Vector norms
+    \item Determinants
+    \item Cross products
+    \item Dot products
+\end{itemize}
+
+\subsection{Calculus}
+
+You are expected to be familiar with the following calculus concepts:
+
+\begin{itemize}
+    \item Derivatives (including trigonometric functions)
+    \item Partial derivatives
+\end{itemize}
+
+\subsection{Course Logistics}
+
+In this class you would be using the following websites regularly:
+
+\begin{itemize}
+    \item \href{https://canvas.cmu.edu/courses/42018}{Canvas}: The main course web page. This links to everything relevant to the class (including the next two links).
+    \item \href{https://canvas.cmu.edu/courses/42018/external_tools/11046}{Piazza}: This is the best way to ask course staff questions, and see course announcements.
+    \item \href{https://canvas.cmu.edu/courses/42018/external_tools/11047?display=borderless}{Gradescope}: This is where you will be turning in your assignment. You should have already been added to the course. If you haven't, please contact the course staff via email or Piazza post.
+\end{itemize}
+
+\writtenSection
+    \newpage
+    
+\section{Theory Questions}
+
+
+
+    \subsection{Matrix and Vector Operations}
+
+\begin{enumerate}[label=\textbf{Question \alph*},leftmargin=*, align=left]
+    \item[\textbf{Question a (10 points)}] \textbf{Matrix Validity and Operations:}
+    Determine whether the following matrix expressions are \emph{valid} or \emph{invalid}. If valid, provide the \emph{dimensions} of the output matrix. If invalid, explain why the operation, relating to the properties of matrix dimensions, invertibility, and multiplication rules. %Give your answer as a list of letters (for example: \texttt{a, b, c}). 
+    \begin{enumerate}[label=(\roman*)]
+
+        \item $\small \left(\left(\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}\right)^T \cdot \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}\right)^{-1}$
+
+        \item $\small \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}$
+
+        \item $\small \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} \cdot \left(\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix}\right)^T$
+        
+        \item $\small \left(\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}\right)^T \cdot \left(\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}\right)^{-1}$
+        
+        \item $\small \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \cdot \begin{bmatrix} 5 \\ -5 \end{bmatrix}$
+
+        \item $\small \left(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)^T$
+        
+        \item $\small \left(\begin{bmatrix} 2 & 3 \\ 5 & 7 \end{bmatrix}\right)^{-1} \cdot \begin{bmatrix} 2 & 3 \\ 5 & 7 \end{bmatrix}$
+
+
+       \item $\small \left(\begin{bmatrix} 2 & 3 \\ 4 & 6 \end{bmatrix}\right)^{-1} \cdot \begin{bmatrix} 2 & 3 \\ 4 & 6 \end{bmatrix}$
+        
+        \item $\small \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} \cdot \left(\begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 1 & 1 \end{bmatrix}\right)^{-1}$
+        
+        \item $\small \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \cdot \left(\left(\begin{bmatrix} 1 & 2 & 3 \end{bmatrix}\right)^T \cdot \begin{bmatrix} 1 & 2 & 3 \end{bmatrix}\right)^{-1}$
+        
+    \end{enumerate}
+    %\textbf{Notes:} For each valid operation, explain the resultant dimensions and, where possible, provide the resultant matrix. For each invalid operation, explain why the operation cannot be performed, relating your explanation to the properties of matrix dimensions, invertibility, and multiplication rules.
+
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \vspace{24pt}
+
+    \item[\textbf{Question b (10 points)}] \textbf{Matrix Multiplications:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Multiply a 2$\times$3 matrix with a 3$\times$1 vector: $\small \begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix}^T \cdot \begin{bmatrix} 4 \\ 2 \\ 9 \end{bmatrix}$
+        
+        \item Multiply a 2$\times$2 matrix with a 2$\times$2 matrix: $\small \begin{bmatrix} 10 & 3 \\ 0 & 6 \end{bmatrix} \cdot \begin{bmatrix} 2 & 1 \\ 5 & 3 \end{bmatrix}$
+    \end{enumerate}
+
+    \begin{tcolorbox}[height=20cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question c (15 points)}] \textbf{Rotation Matrix and Its Properties:}
+Given the rotation matrix $R = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}$,
+    
+    \begin{enumerate}[label=(\roman*)]
+        \item Determine $R^{-1}$.
+        \item Determine $R^{T}$.
+        \item Explain the relationship between $R^{-1}$ and $R^{T}$.
+    \end{enumerate}
+    
+    \begin{tcolorbox}[height=20cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question d (20 points)}] \textbf{Determinants and Ranks:}
+    Given $A = \begin{bmatrix} 1 & 5 \\ 6 & 18 \end{bmatrix}$ and $B = \begin{bmatrix} 2 & 4 \\ 6 & 12 \end{bmatrix}$,
+    \begin{enumerate}[label=(\roman*)]
+        \item Determine $\det(A)$.
+        \item Determine $\rank(A)$. Is $A$ full rank?
+        \item Determine $\det(B)$.
+        \item Determine $\rank(B)$. Is $B$ full rank?
+        \item Explain the relationship between the rank and the determinant of these matrices.
+    \end{enumerate}
+
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question e (10 points)}] \textbf{Vector Operations:}
+    Given the vectors $\vec{x} = \begin{bmatrix}2 \\ 4 \\ 6\end{bmatrix}$ and $\vec{y} = \begin{bmatrix}3 \\ 6 \\ 9\end{bmatrix}$
+    \begin{enumerate}[label=(\roman*)]
+        \item Determine $\vec{x}\cdot\vec{y}$ (dot product).
+        \item Determine $\vec{x} \times \vec{y}$ (cross product).
+        \item Determine $\norm{\vec{x}}_2$ and $\norm{\vec{y}}_2$ (L2 norm).
+        \item Explain the linear dependence or independence of $\vec{x}$ and $\vec{y}$ using dot and cross products.
+    \end{enumerate}
+
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question f (10 points)}] \textbf{Matrix Inversion and Systems of Equations:}
+    \begin{enumerate}[label=(\roman*)]
+        \item Invert the matrix $\begin{bmatrix} 3 & 1 \\ 1.5 & 1 \end{bmatrix}$.
+        \item Solve the linear system $\begin{bmatrix} 3 & 4 \\ 6 & 8 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 12 \\ 24 \end{bmatrix}$.
+    \end{enumerate}
+
+    \begin{tcolorbox}[height=3cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+\end{enumerate}
+\subsection{Calculus}
+
+\begin{enumerate}[label=\textbf{Question \alph*},leftmargin=*, align=left]
+    \item[\textbf{Question a (5 points)}] \textbf{Advanced Derivative Computation:}
+    Find the derivative with respect to $x$ of the function \(f(x) = x^2 \cos(x^3) e^{x^2}\).
+    \textbf{Note:} Provide a detailed solution including any relevant differentiation rules used. This task will require you to apply the product rule, chain rule, and possibly the exponential rule effectively. Please detail each step of your calculation process to demonstrate your understanding of these rules in the context of derivative computation.
+
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question b (10 points)}] \textbf{Partial Derivatives:}
+    Given the function \[f(x, y, z) = z \sin(x^2 y) + y^3 e^{x z},\]
+    \begin{enumerate}[label=(\roman*)]
+    \item Find the partial derivative with respect to $x$
+    \item Find the partial derivative with respect to $y$
+    \item Find the partial derivative with respect to $z$
+    \end{enumerate}
+    \textbf{Note:} Carefully perform and document each step in finding the partial derivatives. Explain the implications of these derivatives in terms of changes in \(f\) when varying one variable while holding the others constant. This will test your ability to understand and apply the chain rule in a multivariable context.
+    
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+
+    \item[\textbf{Question c (10 points)}] \textbf{Gradient Analysis:}
+    Consider the function \(g(x, y, z) = x^2 e^{y} + z \ln(y)\):
+    \begin{enumerate}[label=\roman*.]
+        \item Find the gradient vector \(\nabla g\).
+        \item Determine the critical points of \(g\) and classify them using the second derivative test.
+    \end{enumerate}
+    \textbf{Notes:} Explain each part of your answer, detailing how the gradient relates to the function’s optimization. Classify the critical points and discuss whether they represent local minima, maxima, or saddle points.
+
+    \begin{tcolorbox}[height=15cm]
+        % TODO: ENTER YOUR ANSWER HERE
+    \end{tcolorbox}
+\end{enumerate}
+
+\section{Code Questions}
+
+This section aims to reinforce the theoretical foundations through practical coding exercises in Python, focusing on linear algebra and calculus operations that are pivotal in robotics kinematics and dynamics. Ensure Python and the NumPy library are correctly installed for handling matrix operations, and consider using SymPy for calculus operations.
+
+For Python installation, visit:
+\begin{center}
+    \href{https://www.python.org/downloads/}{https://www.python.org/downloads/}
+\end{center}
+For NumPy and SymPy, install via pip:
+\begin{verbatim}
+    pip install numpy sympy
+\end{verbatim}
+
+After setting up, download the necessary files from the course website and navigate to the Code Handout folder which contains initial scripts.
+
+\begin{questions}
+    \titledquestion{Exercise 01}[40]
+        Implement matrix operations using NumPy to verify your understanding:
+        \begin{itemize}
+            \item Define two matrices \verb!A! (\(2 \times 2\)) and \verb!B! (\(2 \times 3\)) and compute their dot product where applicable.
+            \item Compute the transpose, determinant, and inverse of \verb!A! (ensure \verb!A! is invertible).
+            \item Calculate the rank and vector norm of \verb!B!.
+            \item Multiply \verb!A! by a vector and compute the resulting vector's norm.
+        \end{itemize}
+        Attach screenshot of your result in the write up submission.
+
+    \titledquestion{Exercise 02}[40]
+        Create a script using SymPy to work with calculus concepts:
+        \begin{itemize}
+            \item Define a symbolic function \( f(x, y) = x^2 \sin(y) + y^3 \cos(x) \) and compute its partial derivatives with respect to \( x \) and \( y \).
+            \item Evaluate the derivatives at specific points (e.g., \( (x, y) = (\pi, \pi/2) \)).
+            \item Compute the directional derivative of \( f \) along the vector \([1, 1]\) at the point \( (1, 2) \).
+        \end{itemize}
+
+    \titledquestion{Exercise 03}[20]
+        Simulate basic vector operations important in robotics:
+        \begin{itemize}
+            \item Define vectors \verb!u! and \verb!v! in 3D space.
+            \item Compute and interpret the dot product and cross product of \verb!u! and \verb!v!.
+            \item Analyze the geometric relationship between \verb!u! and \verb!v! based on the dot and cross product results (angle between vectors, perpendicularity).
+        \end{itemize}
+
+    \titledquestion{Submission}
+        To submit, run \verb!create_submission.py!. This script checks that your files run without error and performs basic output consistency checks. Note, this script does not grade your submission but ensures it is prepared correctly. The script will prompt you for your andrew ID, and will generate \verb!<andrew_id>_hw0.zip!. Upload \verb!<andrew_id>_hw0.zip! to Canvas to complete your submission.
+
+\end{questions}
+
+\begin{submissionChecklist}
+		\item Create a PDF of your answers to the written questions using the template provided. Enter your responses where prompted.
+       	\item Run \verb!create_submission.py! in the python terminal.
+       	\item Upload \verb!<andrew_id>_hw0.zip! to Gradescope.
+        \item Upload \verb!<andrew_id>_hw0.pdf! to Gradescope.
+        \item Coding questions are autograded, with no limit on number of submissions within the mandated deadline.
+ 
+	\end{submissionChecklist}
+
+\end{document}
