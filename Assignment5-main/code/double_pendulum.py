@@ -60,8 +60,9 @@ def total_energy(q, qd):
     th1d, th2d = qd[:, 0], qd[:, 1]
 
     # TODO: compute the kinetic energy T and potential energy V.
-    raise NotImplementedError("total_energy")
-
+    V = -(M1*L1*G*np.cos(th1) + M2*G*(L1*np.cos(th1)+L2*np.cos(th2)))
+    T = (1/2)*(M1+M2)*((L1**2)*(th1d**2)) + (1/2)*M2*(L2**2)*(th2d**2) + M2*L1*L2*th1d*th2d*(np.cos(th1-th2))
+    return T + V
 
 def dynamics(q, qd):
     """Joint accelerations of the double pendulum.
@@ -78,8 +79,14 @@ def dynamics(q, qd):
     qdd.  Write them as  M(q) qdd = b(q, qd)  with a 2x2 matrix M, and
     solve for qdd with np.linalg.solve.
     """
+    th1, th2 = q[0], q[1]
+    th1d, th2d = qd[0], qd[1]
     # TODO: implement the equations of motion.
-    raise NotImplementedError("dynamics")
+    M = np.array([[(M1 + M2) * (L1 ** 2), M2 * L1 * L2 * np.cos(th1 - th2)],
+                  [M2 * L1 * L2 * np.cos(th1 - th2), M2 * (L2 ** 2)]])
+    b = np.array([-(M2*L1*L2*(th2d**2)*np.sin(th1-th2)) - ((M1+M2)*G*L1*np.sin(th1)),
+                  (M2*L1*L2*(th1d**2)*np.sin(th1-th2)) - M2*G*L2*np.sin(th2)])
+    return np.linalg.solve(M,b)
 
 
 def simulate(q0, qd0, T=10.0, dt=0.01):
@@ -109,4 +116,17 @@ def simulate(q0, qd0, T=10.0, dt=0.01):
            t, q and qd.
     """
     # TODO: simulate the double pendulum.
-    raise NotImplementedError("simulate")
+    def fun(t,x):
+        th1, th2, th1d, th2d = x
+        q = np.array([th1, th2])
+        qd = np.array([th1d,th2d])
+        qdd = dynamics(q, qd)
+        return np.array([th1d,th2d,qdd[0],qdd[1]])
+    t_eval = np.arange(0, T + dt / 2, dt)
+    t_span = (0, t_eval[-1])
+    y0 = np.array([q0[0],q0[1],qd0[0],qd0[1]])
+    sol = solve_ivp(fun, t_span, y0, t_eval=t_eval, rtol = RTOL, atol = ATOL)
+    t = sol.t
+    q = sol.y[0:2, :].T
+    qd = sol.y[2:4, :].T
+    return (t, q, qd)
